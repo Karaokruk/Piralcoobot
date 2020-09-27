@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App utility colors -->
+    <color name="appBackground">#4072aa</color>
+    <color name="buttonTextColor">#ffffff</color>
+    <!-- Roles colors -->
+    <color name="piratePrimary">#4072aa</color>
+    <color name="pirateSecondary">#003366</color>
+    <color name="moussePrimary">#f98900</color>
+    <color name="mousseSecondary">#a76500</color>
+    <color name="guestPrimary">#a7c8a8</color>
+    <color name="guestSecondary">#008080</color>
+</resources>
