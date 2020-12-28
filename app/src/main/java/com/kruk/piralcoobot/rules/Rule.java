@@ -11,11 +11,16 @@ public abstract class Rule {
         return "";
     }
 
-    public String getRuleText(String PlayerName) {
+    public String getRuleText(String playerName) {
         return "";
     }
 
-    public String getRuleText(String PlayerName1, String PlayerName2) {
+    public String getRuleText(String playerName, int nbGlups) {
         return "";
     }
+
+    public String getRuleText(String playerName1, String playerName2) { return ""; }
+
+    public String getRuleText(String playerName1, String playerName2, int nbGlups) { return ""; }
+
 }
