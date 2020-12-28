@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.kruk.piralcoobot.rules.CulSecRule;
+import com.kruk.piralcoobot.rules.DistanceMousseRule;
 import com.kruk.piralcoobot.rules.Rule;
 
 import org.w3c.dom.Text;
@@ -26,8 +27,10 @@ public class Game extends Fragment {
         switch (ID) {
             case 1: r = new CulSecRule();
                     break;
+            case 2: r = new DistanceMousseRule();
+                    break;
             default:
-                r = new CulSecRule();
+                r = new DistanceMousseRule();
         }
         return r;
     }
