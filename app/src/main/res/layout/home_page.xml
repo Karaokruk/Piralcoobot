@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
+        app:layout_constraintBottom_toTopOf="@id/button_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_first"
+        android:id="@+id/button_play"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:background="@color/pirateSecondary"
@@ -26,13 +26,13 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="25sp"
         android:paddingLeft="50dp"
-        app:layout_constraintBottom_toTopOf="@id/button_third"
+        app:layout_constraintBottom_toTopOf="@id/button_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_first" />
 
     <Button
-        android:id="@+id/button_third"
+        android:id="@+id/button_settings"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:background="@color/pirateSecondary"
@@ -40,13 +40,13 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="25sp"
         android:paddingLeft="50dp"
-        app:layout_constraintBottom_toTopOf="@id/button_fourth"
+        app:layout_constraintBottom_toTopOf="@id/button_help"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_first" />
+        app:layout_constraintTop_toBottomOf="@id/button_play" />
 
     <Button
-        android:id="@+id/button_fourth"
+        android:id="@+id/button_help"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:background="@color/pirateSecondary"
@@ -57,5 +57,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_third" />
+        app:layout_constraintTop_toBottomOf="@id/button_settings" />
 </androidx.constraintlayout.widget.ConstraintLayout>

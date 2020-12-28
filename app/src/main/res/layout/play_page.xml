@@ -53,14 +53,28 @@
                     android:text="Pirate"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"/>
+                <EditText
+                    android:id="@+id/pirateName3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/pirateSecondary"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:text="Pirate"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="25sp" />
             </LinearLayout>
         </ScrollView>
 
         <Button
-            android:id="@+id/button_second"
+            android:id="@+id/button_add_pirate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu"
+            android:text="@string/add"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,15 +86,157 @@
         android:background="@color/moussePrimary"
         android:layout_height="match_parent"
         android:layout_width="0dp"
-        android:layout_weight="1" >
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/mousseListScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="PossiblyUselessParentWithBackground">
+
+            <LinearLayout
+                android:id="@+id/mousseList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="7dp">
+
+                <EditText
+                    android:id="@+id/mousseName1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/mousseSecondary"
+                    android:padding="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Mousse"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="25sp"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"/>
+                <EditText
+                    android:id="@+id/mousseName2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/mousseSecondary"
+                    android:padding="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Mousse"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="25sp"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"/>
+                <EditText
+                    android:id="@+id/mousseName3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/mousseSecondary"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:text="Mousse"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button_add_mousse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
     </LinearLayout>
 
     <LinearLayout
         android:background="@color/guestPrimary"
         android:layout_height="match_parent"
         android:layout_width="0dp"
-        android:layout_weight="1" >
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+
+        <ScrollView
+            android:id="@+id/guestListScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="PossiblyUselessParentWithBackground">
+
+            <LinearLayout
+                android:id="@+id/guestList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="7dp">
+
+                <EditText
+                    android:id="@+id/guestName1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/guestSecondary"
+                    android:padding="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Guest"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="25sp"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"/>
+                <EditText
+                    android:id="@+id/guestName2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/guestSecondary"
+                    android:padding="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Guest"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="25sp"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"/>
+                <EditText
+                    android:id="@+id/guestName3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/guestSecondary"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:text="Guest"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button_add_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
 
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/start_game_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </LinearLayout>

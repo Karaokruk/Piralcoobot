@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/appBackground">
+
+    <TextView
+        android:id="@+id/ruleId"
+        tools:context=".Game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="40sp"
+        android:textColor="@color/buttonTextColor"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/button_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:text="" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
