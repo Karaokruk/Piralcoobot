@@ -27,7 +27,7 @@ import org.w3c.dom.Text;
 
 public class Game extends Fragment {
 
-    static private int nbRules = 1;
+    static private int nbRules = 10;
     private Rule currentRule;
 
     private Rule getRule(int ID) {
