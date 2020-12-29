@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -22,8 +23,13 @@ import com.kruk.piralcoobot.rules.PouetRule;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.ShiFuMiRule;
 import com.kruk.piralcoobot.rules.ThemeRule;
+import com.kruk.piralcoobot.rules.ruleTypes;
+
+//import java.object;
 
 import org.w3c.dom.Text;
+
+import static com.kruk.piralcoobot.R.*;
 
 public class Game extends Fragment {
 
@@ -62,18 +68,19 @@ public class Game extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.game_page, container, false);
+        return inflater.inflate(layout.game_page, container, false);
     }
 
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_page).setOnClickListener(new View.OnClickListener() {
+
+        view.findViewById(id.button_page).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(Game.this)
-                        .navigate(R.id.action_gameFragment_to_self);
+                        .navigate(id.action_gameFragment_to_self);
             }
         });
 
@@ -83,7 +90,10 @@ public class Game extends Fragment {
 
         int ruleID = (int) (Math.random() * nbRules);
         currentRule = getRule(ruleID);
-        TextView ruleTextView = view.findViewById(R.id.ruleId);
+        ConstraintLayout layout = view.findViewById(id.gameLayout);
+        layout.setBackgroundColor(currentRule.getRuleColor());
+
+        TextView ruleTextView = view.findViewById(id.ruleId);
         ruleTextView.setText(currentRule.getRuleText("Mouss1"));
     }
 }

@@ -3,10 +3,10 @@ package com.kruk.piralcoobot.rules;
 public class ShiFuMiRule extends Rule{
 
     public ShiFuMiRule() {
+        super(ruleTypes.MINIGAME);
         this.name = "ShiFuMi ";
         this.ruleText = "<NAME1> <NAME2> faites un Shi-fu-mi. \n  <GLUPS> gorgées pour le perdant !";
         this.helpText = "blblbl";
-        this.ruleType = ruleTypes.MINIGAME;
     }
 
     @Override
