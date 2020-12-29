@@ -7,6 +7,8 @@ public class CulSecRule extends Rule {
         this.name = "culSec";
         this.ruleText = "Cul sec pour <NAME> !";
         this.helpText = "blblbl";
+        this.nbPlayers = 1;
+        this.glups = false;
     }
 
     @Override

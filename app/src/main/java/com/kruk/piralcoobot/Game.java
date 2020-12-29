@@ -94,6 +94,32 @@ public class Game extends Fragment {
         layout.setBackgroundColor(getResources().getColor(currentRule.getRuleColor()));
 
         TextView ruleTextView = view.findViewById(id.ruleId);
-        ruleTextView.setText(currentRule.getRuleText("Mouss1"));
+        switch (currentRule.getNbPlayers()){
+            case 1:
+                if(currentRule.isGlups()){
+                    ruleTextView.setText(currentRule.getRuleText("Mouss1", 3));
+                }else{
+                    ruleTextView.setText(currentRule.getRuleText("Mouss1"));
+                }
+
+                break;
+            case 2:
+                if(currentRule.isGlups()){
+                    ruleTextView.setText(currentRule.getRuleText("Mouss1","Pirate1", 4));
+                }else{
+                    ruleTextView.setText(currentRule.getRuleText("Mouss1", "Pirate1"));
+                }
+
+                break;
+            default :
+                if(currentRule.isGlups()){
+                    ruleTextView.setText(currentRule.getRuleText("Adri1", 7));
+                }else{
+                    ruleTextView.setText(currentRule.getRuleText("Adri1"));
+                }
+
+
+        }
+
     }
 }

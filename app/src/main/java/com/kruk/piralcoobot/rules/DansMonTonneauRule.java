@@ -7,6 +7,8 @@ public class DansMonTonneauRule extends Rule {
         this.name = "DansMonTonneau ";
         this.ruleText = "Dans mon tonneau, <NAME> commence. \n Le perdant bois le nombre d'objets dans mon tonneau !";
         this.helpText = "blblbl";
+        this.nbPlayers = 1;
+        this.glups = false;
     }
 
     @Override

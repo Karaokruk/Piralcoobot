@@ -5,8 +5,10 @@ public class ClapRule extends Rule{
     public ClapRule() {
         super(ruleTypes.GAME);
         this.name = "Clap ";
-        this.ruleText = "Clap, <NAME> commence. \n <GULPS> gorgées pour le perdant !";
+        this.ruleText = "Clap, <NAME> commence. \n <GLUPS> gorgées pour le perdant !";
         this.helpText = "blblbl";
+        this.nbPlayers = 1;
+        this.glups = true;
     }
 
     @Override

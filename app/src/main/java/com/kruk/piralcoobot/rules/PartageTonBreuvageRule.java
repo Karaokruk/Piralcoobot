@@ -5,8 +5,10 @@ public class PartageTonBreuvageRule extends Rule{
     public PartageTonBreuvageRule() {
         super(ruleTypes.GAME);
         this.name = "PartageTonBreuvage";
-        this.ruleText = "<NAME1> verse un peu de la boisson la plus proche dans le verre de <NAME2> (les verres comptent comme une boisson) s";
+        this.ruleText = "<NAME1> verse un peu de la boisson la plus proche dans le verre de <NAME2> (les verres comptent comme une boisson) !";
         this.helpText = "blblbl";
+        this.nbPlayers = 2;
+        this.glups = false;
     }
 
     @Override

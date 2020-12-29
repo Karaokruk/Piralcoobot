@@ -9,6 +9,8 @@ public abstract class Rule {
     protected String ruleText;
     protected String helpText;
     protected ruleTypes ruleType;
+    protected int nbPlayers;
+    protected Boolean glups;
     protected int color;
 
     public Rule (ruleTypes ruleType){
@@ -52,4 +54,7 @@ public abstract class Rule {
 
     public int getRuleColor(){ return this.color; }
 
+    public int getNbPlayers(){ return this.nbPlayers;}
+
+    public Boolean isGlups(){ return this.glups;}
 }

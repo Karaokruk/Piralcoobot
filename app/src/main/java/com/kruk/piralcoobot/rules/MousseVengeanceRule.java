@@ -7,6 +7,8 @@ public class MousseVengeanceRule extends Rule{
         this.name = "MousseVengeance ";
         this.ruleText = "<MOUSSE> finis le verre de <PIRATE> puis remplis le avec ce que tu veux !";
         this.helpText = "blblbl";
+        this.nbPlayers = 2;
+        this.glups = false;
     }
 
     @Override
