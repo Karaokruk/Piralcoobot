@@ -1,4 +1,6 @@
 package com.kruk.piralcoobot.rules;
+import android.util.Log;
+
 import com.kruk.piralcoobot.R;
 
 
@@ -18,7 +20,7 @@ public abstract class Rule {
                 this.color = R.color.drinkColor;
                 break;
             case MINIGAME:
-                this.color = R.color.miniGameColor;
+                this.color = R.color.minigameColor;
                 break;
             case GAME:
                 this.color = R.color.gameColor;
@@ -28,8 +30,9 @@ public abstract class Rule {
                 break;
             default :
                 this.color = R.color.defaultColor;
+        }
+        Log.d("DEBUG", "this.color = " + this.color);
     }
-}
 
     public String getRuleText() {
         return "";
