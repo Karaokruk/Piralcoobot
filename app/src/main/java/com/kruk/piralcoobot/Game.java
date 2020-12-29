@@ -91,7 +91,8 @@ public class Game extends Fragment {
         int ruleID = (int) (Math.random() * nbRules);
         currentRule = getRule(ruleID);
         ConstraintLayout layout = view.findViewById(id.gameLayout);
-        layout.setBackgroundColor(currentRule.getRuleColor());
+        int color = getResources().getColor(currentRule.getRuleColor());
+        layout.setBackgroundColor(color);
 
         TextView ruleTextView = view.findViewById(id.ruleId);
         ruleTextView.setText(currentRule.getRuleText("Mouss1"));
