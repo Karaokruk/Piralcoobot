@@ -3,7 +3,7 @@ package com.kruk.piralcoobot.rules;
 public class ThemeRule extends Rule{
 
     public ThemeRule() {
-        super(ruleTypes.GAME);
+        super(RuleTypes.GAME);
         this.name = "Theme";
         this.ruleText = "Jeux des thèmes, <NAME> choisis un thème. \n Le perdant bois le nombre de réponse au thème !";
         this.helpText = "blblbl";

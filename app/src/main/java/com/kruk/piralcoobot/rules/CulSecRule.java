@@ -3,7 +3,7 @@ package com.kruk.piralcoobot.rules;
 public class CulSecRule extends Rule {
 
     public CulSecRule() {
-        super(ruleTypes.DRINK);
+        super(RuleTypes.DRINK);
         this.name = "culSec";
         this.ruleText = "Cul sec pour <NAME> !";
         this.helpText = "blblbl";

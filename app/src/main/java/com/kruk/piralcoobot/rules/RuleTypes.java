@@ -1,5 +1,5 @@
 package com.kruk.piralcoobot.rules;
 
-public enum ruleTypes {
+public enum RuleTypes {
     DRINK, GAME, MINIGAME, ROLE;
 }

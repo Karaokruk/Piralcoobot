@@ -1,7 +1,7 @@
 package com.kruk.piralcoobot;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.kruk.piralcoobot.rules.ClapRule;
@@ -23,11 +24,8 @@ import com.kruk.piralcoobot.rules.PouetRule;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.ShiFuMiRule;
 import com.kruk.piralcoobot.rules.ThemeRule;
-import com.kruk.piralcoobot.rules.ruleTypes;
 
 //import java.object;
-
-import org.w3c.dom.Text;
 
 import static com.kruk.piralcoobot.R.*;
 
@@ -85,9 +83,13 @@ public class Game extends Fragment {
         });
 
         // Receive players
-        //Intent intent = getIntent();
-        //String message = intent.getStringExtra("message");
+        NavDestination context = NavHostFragment.findNavController(Game.this).getGraph().findNode(R.id.gameFragment);
 
+        String key = "players";
+        String playerName = ((Bundle) context.getArguments().get(key).getDefaultValue()).getString(key);
+        Log.d("DEBUG", "Player name : " + playerName);
+
+        // Select rule
         int ruleID = (int) (Math.random() * nbRules);
         currentRule = getRule(ruleID);
         ConstraintLayout layout = view.findViewById(id.gameLayout);
@@ -97,25 +99,25 @@ public class Game extends Fragment {
         switch (currentRule.getNbPlayers()){
             case 1:
                 if(currentRule.isGlups()){
-                    ruleTextView.setText(currentRule.getRuleText("Mouss1", 3));
+                    ruleTextView.setText(currentRule.getRuleText(playerName, 3));
                 }else{
-                    ruleTextView.setText(currentRule.getRuleText("Mouss1"));
+                    ruleTextView.setText(currentRule.getRuleText(playerName));
                 }
 
                 break;
             case 2:
                 if(currentRule.isGlups()){
-                    ruleTextView.setText(currentRule.getRuleText("Mouss1","Pirate1", 4));
+                    ruleTextView.setText(currentRule.getRuleText("Mouss1", playerName, 4));
                 }else{
-                    ruleTextView.setText(currentRule.getRuleText("Mouss1", "Pirate1"));
+                    ruleTextView.setText(currentRule.getRuleText("Mouss1", playerName));
                 }
 
                 break;
             default :
                 if(currentRule.isGlups()){
-                    ruleTextView.setText(currentRule.getRuleText("Adri1", 7));
+                    ruleTextView.setText(currentRule.getRuleText(playerName, 7));
                 }else{
-                    ruleTextView.setText(currentRule.getRuleText("Adri1"));
+                    ruleTextView.setText(currentRule.getRuleText(playerName));
                 }
 
 

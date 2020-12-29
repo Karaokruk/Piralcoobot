@@ -3,7 +3,7 @@ package com.kruk.piralcoobot.rules;
 public class MousseVengeanceRule extends Rule{
 
     public MousseVengeanceRule() {
-        super(ruleTypes.DRINK);
+        super(RuleTypes.DRINK);
         this.name = "MousseVengeance ";
         this.ruleText = "<MOUSSE> finis le verre de <PIRATE> puis remplis le avec ce que tu veux !";
         this.helpText = "blblbl";

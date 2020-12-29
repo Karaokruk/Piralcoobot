@@ -10,6 +10,10 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavArgument;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.NavGraph;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class Play extends Fragment {
@@ -34,19 +38,20 @@ public class Play extends Fragment {
         view.findViewById(R.id.start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Add players
                 EditText editText = getView().findViewById(R.id.PirateName1);
-                Log.d("DEBUG", "Getting pirate names : " + editText + "\n");
                 String player = editText.getText().toString();
-                Log.d("DEBUG", "Getting pirate names" + player + "\n");
 
-                //Intent intent = new Intent(getActivity().getBaseContext(), Game.class);
-                //intent.putExtra("player", player);
-                //getActivity().startActivity(intent);
+                NavController navController = NavHostFragment.findNavController(Play.this);
+                NavDestination destination = navController.getGraph().findNode(R.id.gameFragment);
 
-                NavHostFragment.findNavController(Play.this)
-                        .navigate(R.id.action_playFragment_to_gameFragment);
+                Bundle b = new Bundle();
+                b.putString("players", player);
+                NavArgument arg = new NavArgument.Builder().setDefaultValue(b).build();
+                destination.addArgument("players", arg);
+
+                navController.navigate(R.id.action_playFragment_to_gameFragment);
             }
         });
     }
-
 }

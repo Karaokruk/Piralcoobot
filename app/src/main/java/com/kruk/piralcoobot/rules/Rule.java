@@ -8,12 +8,12 @@ public abstract class Rule {
     protected String name;
     protected String ruleText;
     protected String helpText;
-    protected ruleTypes ruleType;
+    protected RuleTypes ruleType;
     protected int nbPlayers;
     protected Boolean glups;
     protected int color;
 
-    public Rule (ruleTypes ruleType){
+    public Rule (RuleTypes ruleType){
 
         this.ruleType = ruleType;
 

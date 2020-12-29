@@ -3,7 +3,7 @@ package com.kruk.piralcoobot.rules;
 public class ClapRule extends Rule{
 
     public ClapRule() {
-        super(ruleTypes.GAME);
+        super(RuleTypes.GAME);
         this.name = "Clap ";
         this.ruleText = "Clap, <NAME> commence. \n <GLUPS> gorgées pour le perdant !";
         this.helpText = "blblbl";
