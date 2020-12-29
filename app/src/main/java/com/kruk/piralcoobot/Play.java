@@ -2,6 +2,7 @@ package com.kruk.piralcoobot;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,10 @@ public class Play extends Fragment {
         view.findViewById(R.id.start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //EditText editText = view.findViewById(R.id.pirateName3);
+                EditText editText = view.findViewById(R.id.PirateName1);
+                //Log.d("DEBUG", "Getting pirate names : " + editText + "\n");
                 //String player = editText.getText().toString();
+                //Log.d("DEBUG", "Getting pirate names\n");
 
                 //Intent intent = new Intent(getActivity().getBaseContext(), Game.class);
                 //intent.putExtra("player", player);

@@ -26,17 +26,17 @@
             app:destination="@id/homeFragment" />
         <action
             android:id="@+id/action_playFragment_to_gameFragment"
-            app:destination="@id/action_gameFragment_to_homeFragment" />
+            app:destination="@id/gameFragment" />
     </fragment>
     <fragment
-        android:id="@+id/action_gameFragment_to_homeFragment"
+        android:id="@+id/gameFragment"
         android:name="com.kruk.piralcoobot.Game"
         android:label="@string/game_fragment_label">
         <action
+            android:id="@+id/action_gameFragment_to_self"
+            app:destination="@id/gameFragment" />
+        <action
             android:id="@+id/action_gameFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
-        <action
-            android:id="@+id/action_gameFragment_to_homeFragment_self"
-            app:destination="@id/action_gameFragment_to_homeFragment" />
     </fragment>
 </navigation>

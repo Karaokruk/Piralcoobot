@@ -36,7 +36,7 @@
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Pirate"
+                    android:text="Pirate1"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
                 <Space
@@ -50,7 +50,7 @@
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Pirate"
+                    android:text="Pirate2"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
                 <Space
@@ -64,7 +64,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:text="Pirate"
+                    android:text="Pirate3"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp" />
             </LinearLayout>
@@ -110,7 +110,7 @@
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Mousse"
+                    android:text="Mouss1"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
                 <Space
@@ -124,7 +124,7 @@
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Mousse"
+                    android:text="Mouss2"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
                 <Space
@@ -138,7 +138,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:text="Mousse"
+                    android:text="Mouss3"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp" />
             </LinearLayout>
@@ -185,7 +185,7 @@
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Guest"
+                    android:text="Guest1"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
                 <Space
@@ -199,7 +199,7 @@
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Guest"
+                    android:text="Guest2"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
                 <Space
@@ -213,7 +213,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:text="Guest"
+                    android:text="Guest3"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp" />
             </LinearLayout>

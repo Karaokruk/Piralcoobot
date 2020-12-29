@@ -69,6 +69,14 @@ public class Game extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        view.findViewById(R.id.button_page).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(Game.this)
+                        .navigate(R.id.action_gameFragment_to_self);
+            }
+        });
+
         // Receive players
         //Intent intent = getIntent();
         //String message = intent.getStringExtra("message");
