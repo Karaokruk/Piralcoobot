@@ -23,6 +23,7 @@
 
             <LinearLayout
                 android:id="@+id/pirateList"
+                android:contentDescription="@string/pirateList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -30,43 +31,16 @@
 
                 <EditText
                     android:id="@+id/PirateName1"
+                    android:contentDescription="@string/pirate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/pirateSecondary"
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Pirate1"
+                    android:text="Pirate"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"/>
-                <EditText
-                    android:id="@+id/PirateName2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/pirateSecondary"
-                    android:padding="5dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Pirate2"
-                    android:textColor="@color/buttonTextColor"
-                    android:textSize="25sp"/>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"/>
-                <EditText
-                    android:id="@+id/pirateName3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/pirateSecondary"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:padding="5dp"
-                    android:text="Pirate3"
-                    android:textColor="@color/buttonTextColor"
-                    android:textSize="25sp" />
             </LinearLayout>
         </ScrollView>
 
@@ -97,6 +71,7 @@
 
             <LinearLayout
                 android:id="@+id/mousseList"
+                android:contentDescription="@string/mousseList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -104,43 +79,16 @@
 
                 <EditText
                     android:id="@+id/mousseName1"
+                    android:contentDescription="@string/mousse"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/mousseSecondary"
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Mouss1"
+                    android:text="Mousse"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"/>
-                <EditText
-                    android:id="@+id/mousseName2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/mousseSecondary"
-                    android:padding="5dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Mouss2"
-                    android:textColor="@color/buttonTextColor"
-                    android:textSize="25sp"/>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"/>
-                <EditText
-                    android:id="@+id/mousseName3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/mousseSecondary"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:padding="5dp"
-                    android:text="Mouss3"
-                    android:textColor="@color/buttonTextColor"
-                    android:textSize="25sp" />
             </LinearLayout>
         </ScrollView>
 
@@ -172,6 +120,7 @@
 
             <LinearLayout
                 android:id="@+id/guestList"
+                android:contentDescription="@string/guestList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -179,43 +128,16 @@
 
                 <EditText
                     android:id="@+id/guestName1"
+                    android:contentDescription="@string/guest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/guestSecondary"
                     android:padding="5dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Guest1"
+                    android:text="Guest"
                     android:textColor="@color/buttonTextColor"
                     android:textSize="25sp"/>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"/>
-                <EditText
-                    android:id="@+id/guestName2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/guestSecondary"
-                    android:padding="5dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Guest2"
-                    android:textColor="@color/buttonTextColor"
-                    android:textSize="25sp"/>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"/>
-                <EditText
-                    android:id="@+id/guestName3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/guestSecondary"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:padding="5dp"
-                    android:text="Guest3"
-                    android:textColor="@color/buttonTextColor"
-                    android:textSize="25sp" />
             </LinearLayout>
         </ScrollView>
 

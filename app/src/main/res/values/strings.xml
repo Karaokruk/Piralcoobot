@@ -9,4 +9,11 @@
     <string name="action_settings">Options</string>
     <string name="action_help">Aide</string>
     <string name="add">Ajouter</string>
+    <!-- Strings used for content descriptions -->
+    <string name="pirate">Pirate</string>
+    <string name="mousse">Mousse</string>
+    <string name="guest">Guest</string>
+    <string name="pirateList">PirateList</string>
+    <string name="mousseList">MousseList</string>
+    <string name="guestList">GuestList</string>
 </resources>
