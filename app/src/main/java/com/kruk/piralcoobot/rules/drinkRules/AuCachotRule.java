@@ -1,14 +1,19 @@
-package com.kruk.piralcoobot.rules;
+package com.kruk.piralcoobot.rules.drinkRules;
 
-public class AuCachotRule extends Rule{
+import com.kruk.piralcoobot.PlayerType;
+import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.rules.RuleType;
+
+public class AuCachotRule extends Rule {
 
     public AuCachotRule(){
-        super(RuleTypes.DRINK);
+        super(RuleType.DRINK);
         this.name = "AuCachot";
         this.ruleText = "AU CACHOT : <NAME> rentre au cachot, privé d'alcool ( esquive la prochaine buvance) !";
         this.helpText = "blblbl";
         this.nbPlayers = 1;
-        this.glups = false;
+        this.hasGulps = false;
+        this.playerTypes.add(PlayerType.ANY);
     }
 
     @Override

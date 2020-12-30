@@ -1,14 +1,18 @@
-package com.kruk.piralcoobot.rules;
+package com.kruk.piralcoobot.rules.drinkRules;
 
-public class RequinRule extends Rule{
+import com.kruk.piralcoobot.PlayerType;
+import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.rules.RuleType;
+
+public class RequinRule extends Rule {
 
     public RequinRule() {
-        super(RuleTypes.DRINK);
+        super(RuleType.DRINK);
         this.name = "RequinRule";
         this.ruleText = "désignez une personne en même temps, il boit <GLUPS> gorgées !";
         this.helpText = "blblbl";
         this.nbPlayers = 0;
-        this.glups = true;
+        this.hasGulps = true;
     }
 
     @Override

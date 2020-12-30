@@ -1,14 +1,19 @@
-package com.kruk.piralcoobot.rules;
+package com.kruk.piralcoobot.rules.gameRules;
 
-public class ChoisisLeBonRule extends Rule{
+import com.kruk.piralcoobot.PlayerType;
+import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.rules.RuleType;
+
+public class ChoisisLeBonRule extends Rule {
 
     public ChoisisLeBonRule() {
-        super(RuleTypes.MINIGAME);
+        super(RuleType.GAME);
         this.name = "ChoisisLeBon";
         this.ruleText = " Choisis le bon ! <PIRATE1> et <PIRATE2> choisisse leur mousse respectif et mise des gorgés. Les mousses choisissent une carte face caché puis la retourne ensemble la plus grande gagne.";
         this.helpText = "blblbl";
         this.nbPlayers = 2;
-        this.glups = false;
+        this.hasGulps = false;
+        this.playerTypes.add(PlayerType.PIRATE);
     }
 
     @Override

@@ -1,14 +1,18 @@
-package com.kruk.piralcoobot.rules;
+package com.kruk.piralcoobot.rules.drinkRules;
 
-public class NavireHorizonRule extends Rule{
+import com.kruk.piralcoobot.PlayerType;
+import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.rules.RuleType;
+
+public class NavireHorizonRule extends Rule {
 
     public NavireHorizonRule() {
-        super(RuleTypes.DRINK);
+        super(RuleType.DRINK);
         this.name = "NavireHorizon";
         this.ruleText = "Navire à l'horizon : finissez vos verres moussaillons, à l'abordage !";
         this.helpText = "blblbl";
         this.nbPlayers = 0;
-        this.glups = false;
+        this.hasGulps = false;
     }
 
     @Override
