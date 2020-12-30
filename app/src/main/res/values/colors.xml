@@ -11,9 +11,8 @@
     <color name="guestPrimary">#a7c8a8</color>
     <color name="guestSecondary">#008080</color>
     <!-- Rules colors -->
-    <color name="drinkColor">#bb0b0b</color>
+    <color name="deathColor">#bb0b0b</color>
     <color name="gameColor">#fd6c9e</color>
-    <color name="minigameColor">#008e8e</color>
+    <color name="drinkColor">#008e8e</color>
     <color name="roleColor">#cccccc</color>
-    <color name="defaultColor">#cecece</color>
 </resources>

@@ -1,6 +1,8 @@
 package com.kruk.piralcoobot.rules;
-import android.util.Log;
 
+import java.util.ArrayList;
+
+import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.R;
 
 
@@ -8,53 +10,39 @@ public abstract class Rule {
     protected String name;
     protected String ruleText;
     protected String helpText;
-    protected RuleTypes ruleType;
+    protected RuleType ruleType;
     protected int nbPlayers;
-    protected Boolean glups;
+    protected Boolean hasGulps;
     protected int color;
+    protected ArrayList<PlayerType> playerTypes;
 
-    public Rule (RuleTypes ruleType){
-
+    public Rule(RuleType ruleType){
+        this.playerTypes = new ArrayList<PlayerType>();
         this.ruleType = ruleType;
-
-        switch(ruleType) {
-            case DRINK:
-                this.color = R.color.drinkColor;
-                break;
-            case MINIGAME:
-                this.color = R.color.minigameColor;
-                break;
-            case GAME:
-                this.color = R.color.gameColor;
-                break;
-            case ROLE:
-                this.color = R.color.roleColor;
-                break;
-            default :
-                this.color = R.color.defaultColor;
-        }
-        Log.d("DEBUG", "this.color = " + this.color);
     }
 
-    public String getRuleText() {
-        return "";
+    public static String getRandomDirection() {
+        return (Math.round((float) Math.random()) == 0) ? "droite" : "gauche";
     }
 
-    public String getRuleText(int nbGlups) { return "";}
 
-    public String getRuleText(String playerName) { return "";}
+    public String getRuleText() { return ""; }
 
-    public String getRuleText(String playerName, int nbGlups) {
-        return "";
-    }
+    public String getRuleText(int nbGulps) { return ""; }
+
+    public String getRuleText(String playerName) { return ""; }
+
+    public String getRuleText(String playerName, int nbGulps) { return ""; }
 
     public String getRuleText(String playerName1, String playerName2) { return ""; }
 
-    public String getRuleText(String playerName1, String playerName2, int nbGlups) { return ""; }
+    public String getRuleText(String playerName1, String playerName2, int nbGulps) { return ""; }
 
-    public int getRuleColor(){ return this.color; }
+    public int getRuleColor() { return this.color; }
 
-    public int getNbPlayers(){ return this.nbPlayers;}
+    public int getNbPlayers() { return this.nbPlayers; }
 
-    public Boolean isGlups(){ return this.glups;}
+    public Boolean hasGulps() { return this.hasGulps; }
+
+    public PlayerType getPlayerType(int id) { return this.playerTypes.get(id); }
 }
