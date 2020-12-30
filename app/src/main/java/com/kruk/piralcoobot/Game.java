@@ -13,14 +13,22 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.kruk.piralcoobot.rules.AuCachotRule;
+import com.kruk.piralcoobot.rules.BatailleDeMousseRule;
+import com.kruk.piralcoobot.rules.ChoisisLeBonRule;
 import com.kruk.piralcoobot.rules.ClapRule;
 import com.kruk.piralcoobot.rules.CulSecRule;
 import com.kruk.piralcoobot.rules.DansMonTonneauRule;
 import com.kruk.piralcoobot.rules.DistanceMousseRule;
+import com.kruk.piralcoobot.rules.FontaineRule;
 import com.kruk.piralcoobot.rules.MousseVengeanceRule;
+import com.kruk.piralcoobot.rules.MutinerieRule;
+import com.kruk.piralcoobot.rules.NavireHorizonRule;
 import com.kruk.piralcoobot.rules.PartageTonBreuvageRule;
+import com.kruk.piralcoobot.rules.PasBourreRule;
 import com.kruk.piralcoobot.rules.PirateTraumatismeRule;
 import com.kruk.piralcoobot.rules.PouetRule;
+import com.kruk.piralcoobot.rules.RequinRule;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.ShiFuMiRule;
 import com.kruk.piralcoobot.rules.ThemeRule;
@@ -31,7 +39,7 @@ import static com.kruk.piralcoobot.R.*;
 
 public class Game extends Fragment {
 
-    static private int nbRules = 10;
+    static private int nbRules = 18;
     private Rule currentRule;
 
     private Rule getRule(int ID) {
@@ -56,6 +64,22 @@ public class Game extends Fragment {
             case 8: r = new ShiFuMiRule();
                 break;
             case 9: r = new ThemeRule();
+                break;
+            case 10: r = new AuCachotRule();
+                break;
+            case 11: r = new BatailleDeMousseRule();
+                break;
+            case 12: r = new ChoisisLeBonRule();
+                break;
+            case 13: r = new FontaineRule();
+                break;
+            case 14: r = new MutinerieRule();
+                break;
+            case 15: r = new NavireHorizonRule();
+                break;
+            case 16: r = new PasBourreRule();
+                break;
+            case 17: r = new RequinRule();
                 break;
             default:
                 r = new PartageTonBreuvageRule();
@@ -97,6 +121,13 @@ public class Game extends Fragment {
 
         TextView ruleTextView = view.findViewById(id.ruleId);
         switch (currentRule.getNbPlayers()){
+            case 0:
+                if(currentRule.isGlups()) {
+                    ruleTextView.setText(currentRule.getRuleText(5));
+                }else{
+                    ruleTextView.setText(currentRule.getRuleText());
+                }
+                break;
             case 1:
                 if(currentRule.isGlups()){
                     ruleTextView.setText(currentRule.getRuleText(playerName, 3));
@@ -107,9 +138,9 @@ public class Game extends Fragment {
                 break;
             case 2:
                 if(currentRule.isGlups()){
-                    ruleTextView.setText(currentRule.getRuleText("Mouss1", playerName, 4));
+                    ruleTextView.setText(currentRule.getRuleText(playerName, playerName, 4));
                 }else{
-                    ruleTextView.setText(currentRule.getRuleText("Mouss1", playerName));
+                    ruleTextView.setText(currentRule.getRuleText(playerName, playerName));
                 }
 
                 break;

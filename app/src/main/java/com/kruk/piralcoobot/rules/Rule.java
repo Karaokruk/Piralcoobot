@@ -40,9 +40,9 @@ public abstract class Rule {
         return "";
     }
 
-    public String getRuleText(String playerName) {
-        return "";
-    }
+    public String getRuleText(int nbGlups) { return "";}
+
+    public String getRuleText(String playerName) { return "";}
 
     public String getRuleText(String playerName, int nbGlups) {
         return "";
