@@ -9,7 +9,7 @@ public class AuCachotRule extends Rule {
     public AuCachotRule(){
         super(RuleType.DRINK);
         this.name = "AuCachot";
-        this.ruleText = "AU CACHOT : <NAME> rentre au cachot, privé d'alcool ( esquive la prochaine buvance) !";
+        this.ruleText = "AU CACHOT : <NAME> rentre au cachot, privé d'alcool (esquive la prochaine buvance) !";
         this.helpText = "blblbl";
         this.nbPlayers = 1;
         this.hasGulps = false;

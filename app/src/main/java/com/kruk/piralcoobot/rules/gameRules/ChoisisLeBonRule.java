@@ -9,7 +9,7 @@ public class ChoisisLeBonRule extends Rule {
     public ChoisisLeBonRule() {
         super(RuleType.GAME);
         this.name = "ChoisisLeBon";
-        this.ruleText = " Choisis le bon ! <PIRATE1> et <PIRATE2> choisisse leur mousse respectif et mise des gorgés. Les mousses choisissent une carte face caché puis la retourne ensemble la plus grande gagne.";
+        this.ruleText = "Choisis le bon ! <PIRATE1> et <PIRATE2> choisissent leur mousse respectif et misent des gorgées dessus. Les mousses choisissent une carte face cachée puis la retourne ensemble. La plus grande gagne (mais l'as perd).";
         this.helpText = "blblbl";
         this.nbPlayers = 2;
         this.hasGulps = false;

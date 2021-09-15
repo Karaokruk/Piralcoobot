@@ -21,7 +21,7 @@ public class MousseVengeanceRule extends DrinkRule {
     public String getRuleText(String mousseName, String pirateName) {
         String rule = this.ruleText;
         rule = rule.replaceAll("<MOUSSE>", mousseName);
-        rule = rule.replaceAll( "<PIRATE>", pirateName);
+        rule = rule.replaceAll("<PIRATE>", pirateName);
 
         return rule;
     }

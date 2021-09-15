@@ -17,7 +17,7 @@ public class PirateTraumatismeRule extends DrinkRule {
     }
 
     @Override
-    public String getRuleText(String playerName1) {
-        return this.ruleText.replaceAll("<PIRATE>", playerName1);
+    public String getRuleText(String playerName) {
+        return this.ruleText.replaceAll("<PIRATE>", playerName);
     }
 }

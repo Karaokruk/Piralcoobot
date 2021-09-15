@@ -12,46 +12,15 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.kruk.piralcoobot.rules.AuCachotRule;
-import com.kruk.piralcoobot.rules.BatailleDeMousseRule;
-import com.kruk.piralcoobot.rules.ChoisisLeBonRule;
-import com.kruk.piralcoobot.rules.ClapRule;
-import com.kruk.piralcoobot.rules.CulSecRule;
-import com.kruk.piralcoobot.rules.DansMonTonneauRule;
-import com.kruk.piralcoobot.rules.DistanceMousseRule;
-import com.kruk.piralcoobot.rules.FontaineRule;
-import com.kruk.piralcoobot.rules.MousseVengeanceRule;
-import com.kruk.piralcoobot.rules.MutinerieRule;
-import com.kruk.piralcoobot.rules.NavireHorizonRule;
-import com.kruk.piralcoobot.rules.PartageTonBreuvageRule;
-import com.kruk.piralcoobot.rules.PasBourreRule;
-import com.kruk.piralcoobot.rules.PirateTraumatismeRule;
-import com.kruk.piralcoobot.rules.PouetRule;
-import com.kruk.piralcoobot.rules.RequinRule;
-import com.kruk.piralcoobot.rules.Rule;
-import com.kruk.piralcoobot.rules.ShiFuMiRule;
-import com.kruk.piralcoobot.rules.ThemeRule;
-
 import java.util.ArrayList;
 
-
 import com.kruk.piralcoobot.rules.*;
-import com.kruk.piralcoobot.rules.deathRules.CulSecRule;
-import com.kruk.piralcoobot.rules.deathRules.ShiFuMiRule;
-import com.kruk.piralcoobot.rules.drinkRules.DistanceMousseRule;
-import com.kruk.piralcoobot.rules.drinkRules.MousseVengeanceRule;
-import com.kruk.piralcoobot.rules.drinkRules.PartageTonBreuvageRule;
-import com.kruk.piralcoobot.rules.drinkRules.PirateTraumatismeRule;
-import com.kruk.piralcoobot.rules.gameRules.ClapRule;
-import com.kruk.piralcoobot.rules.gameRules.DansMonTonneauRule;
-import com.kruk.piralcoobot.rules.gameRules.PouetRule;
-import com.kruk.piralcoobot.rules.gameRules.ThemeRule;
 
 import static com.kruk.piralcoobot.R.*;
 
 public class Game extends Fragment {
 
-    static private int nbRules = 18;
+    private static int nbRules = 24;
 
     private int nbMinGulps = 0;
     private int nbMaxGulps = 0;
@@ -71,9 +40,9 @@ public class Game extends Fragment {
         Rule r;
         switch (ID) {
             case 0: r = new ClapRule();
-                    break;
+                break;
             case 1: r = new CulSecRule();
-                    break;
+                break;
             case 2: r = new DansMonTonneauRule();
                 break;
             case 3: r = new DistanceMousseRule();
@@ -105,6 +74,18 @@ public class Game extends Fragment {
             case 16: r = new PasBourreRule();
                 break;
             case 17: r = new RequinRule();
+                break;
+            case 18: r = new TroisProchainesRule();
+                break;
+            case 19: r = new TuBoisRule();
+                break;
+            case 20: r = new ClassicRule();
+                break;
+            case 21: r = new OnSeFaitAttaquerRule();
+                break;
+            case 22: r = new PagayeRule();
+                break;
+            case 23: r = new DevineLaDirectionRule();
                 break;
             default:
                 r = new PartageTonBreuvageRule();
@@ -191,9 +172,6 @@ public class Game extends Fragment {
         layout.setBackgroundColor(getResources().getColor(currentRule.getRuleColor()));
 
         TextView ruleTextView = view.findViewById(id.ruleId);
-        
-                }
-
 
 
         // Select random players

@@ -9,7 +9,7 @@ public class ThemeRule extends GameRule {
     public ThemeRule() {
         super(RuleType.GAME);
         this.name = "theme";
-        this.ruleText = "Thème, <NAME> commence, sens vers la <DIRECTION>. \n Le perdant boit en gorgées le nombre de réponses au thème.";
+        this.ruleText = "Thème, <NAME> commence, sens vers la <DIRECTION>.\n Le perdant boit en gorgées le nombre de réponses au thème.";
         this.helpText = "blblbl";
         this.nbPlayers = 1;
         this.hasGulps = false;

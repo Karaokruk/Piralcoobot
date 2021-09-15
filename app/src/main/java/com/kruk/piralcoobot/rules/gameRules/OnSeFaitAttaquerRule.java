@@ -4,12 +4,13 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class PasBourreRule extends Rule {
+public class OnSeFaitAttaquerRule extends Rule {
 
-    public PasBourreRule() {
+
+    public OnSeFaitAttaquerRule() {
         super(RuleType.GAME);
-        this.name = "PasBourre";
-        this.ruleText = "T'ES PAS BOURRÉ : Laissez la Poule Pirate choisir qui n'a pas encore assez bu, <GULPS> gorgées !";
+        this.name = "onSeFaitAttaquer";
+        this.ruleText = "ON SE FAIT ATTAQUER ! Nous avons <GULPS> gorgées à essorer, répartissez-vous les gorgées comme vous le souhaitez.";
         this.helpText = "blblbl";
         this.nbPlayers = 0;
         this.hasGulps = true;
@@ -17,6 +18,6 @@ public class PasBourreRule extends Rule {
 
     @Override
     public String getRuleText(int nbGulps) {
-        return this.ruleText.replaceAll("<GULPS>", String.valueOf(nbGulps));
+        return this.ruleText.replaceAll("<GULPS>", String.valueOf(nbGulps * 4));
     }
 }

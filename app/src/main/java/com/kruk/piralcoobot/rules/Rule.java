@@ -16,7 +16,7 @@ public abstract class Rule {
     protected int color;
     protected ArrayList<PlayerType> playerTypes;
 
-    public Rule(RuleType ruleType){
+    public Rule(RuleType ruleType) {
         this.playerTypes = new ArrayList<PlayerType>();
         this.ruleType = ruleType;
     }

@@ -8,15 +8,15 @@ public class RequinRule extends Rule {
 
     public RequinRule() {
         super(RuleType.DRINK);
-        this.name = "RequinRule";
-        this.ruleText = "désignez une personne en même temps, il boit <GLUPS> gorgées !";
+        this.name = "requinRule";
+        this.ruleText = "Désignez une personne en même temps, elle boit <GULPS> gorgées.";
         this.helpText = "blblbl";
         this.nbPlayers = 0;
         this.hasGulps = true;
     }
 
     @Override
-    public String getRuleText(int nbGlups) {
-        return this.ruleText.replaceAll("<GLUPS>", String.valueOf(nbGlups));
+    public String getRuleText(int nbGulps) {
+        return this.ruleText.replaceAll("<GULPS>", String.valueOf(nbGulps));
     }
 }
