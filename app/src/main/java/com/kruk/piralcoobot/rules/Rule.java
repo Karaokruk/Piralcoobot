@@ -1,9 +1,8 @@
 package com.kruk.piralcoobot.rules;
 
-import java.util.ArrayList;
+import com.kruk.piralcoobot.playerType.PlayerType;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.R;
+import java.util.ArrayList;
 
 
 public abstract class Rule {

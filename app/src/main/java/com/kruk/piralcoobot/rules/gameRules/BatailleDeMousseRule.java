@@ -1,7 +1,5 @@
 package com.kruk.piralcoobot.rules.gameRules;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
 public class BatailleDeMousseRule extends GameRule {

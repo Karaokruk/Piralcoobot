@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -13,10 +14,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 
-import java.io.Console;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
+import com.kruk.piralcoobot.playerType.GuestType;
+import com.kruk.piralcoobot.playerType.MousseType;
+import com.kruk.piralcoobot.playerType.PirateType;
+import com.kruk.piralcoobot.playerType.PlayerType;
 import com.kruk.piralcoobot.rules.*;
 import com.kruk.piralcoobot.rules.deathRules.*;
 import com.kruk.piralcoobot.rules.drinkRules.*;
@@ -27,11 +30,14 @@ import static com.kruk.piralcoobot.R.*;
 
 public class Game extends Fragment {
 
-    private static int nbRules = 26;
+    private static final PlayerType pirateType = new PirateType();
+    private static final PlayerType mousseType = new MousseType();
+    private static final PlayerType guestType = new GuestType();
+
+    private final int nbRules = 26;
 
     private int nbMinGulps = 0;
     private int nbMaxGulps = 0;
-
 
     private Rule currentRule;
     private ArrayList<Player> players = new ArrayList<Player>();
@@ -46,80 +52,88 @@ public class Game extends Fragment {
     private Rule getRule(int ID) {
         Rule r;
         switch (ID) {
-            case 0: r = new ClapRule();
+            case 0:
+                r = new ClapRule();
                 break;
-            case 1: r = new CulSecRule();
+            case 1:
+                r = new CulSecRule();
                 break;
-            case 2: r = new DansMonTonneauRule();
+            case 2:
+                r = new DansMonTonneauRule();
                 break;
-            case 3: r = new DistanceMousseRule();
+            case 3:
+                r = new DistanceMousseRule();
                 break;
-            case 4: r = new MousseVengeanceRule();
+            case 4:
+                r = new MousseVengeanceRule();
                 break;
-            case 5: r = new PartageTonBreuvageRule();
+            case 5:
+                r = new PartageTonBreuvageRule();
                 break;
-            case 6: r = new PirateTraumatismeRule();
+            case 6:
+                r = new PirateTraumatismeRule();
                 break;
-            case 7: r = new PouetRule();
+            case 7:
+                r = new PouetRule();
                 break;
-            case 8: r = new ShiFuMiRule();
+            case 8:
+                r = new ShiFuMiRule();
                 break;
-            case 9: r = new ThemeRule();
+            case 9:
+                r = new ThemeRule();
                 break;
-            case 10: r = new AuCachotRule();
+            case 10:
+                r = new AuCachotRule();
                 break;
-            case 11: r = new BatailleDeMousseRule();
+            case 11:
+                r = new BatailleDeMousseRule();
                 break;
-            case 12: r = new ChoisisLeBonRule();
+            case 12:
+                r = new ChoisisLeBonRule();
                 break;
-            case 13: r = new FontaineRule();
+            case 13:
+                r = new FontaineRule();
                 break;
-            case 14: r = new MutinerieRule();
+            case 14:
+                r = new MutinerieRule();
                 break;
-            case 15: r = new NavireHorizonRule();
+            case 15:
+                r = new NavireHorizonRule();
                 break;
-            case 16: r = new PasBourreRule();
+            case 16:
+                r = new PasBourreRule();
                 break;
-            case 17: r = new RequinRule();
+            case 17:
+                r = new RequinRule();
                 break;
-            case 18: r = new TroisProchainesRule();
+            case 18:
+                r = new TroisProchainesRule();
                 break;
-            case 19: r = new TuBoisRule();
+            case 19:
+                r = new TuBoisRule();
                 break;
-            case 20: r = new ClassicRule();
+            case 20:
+                r = new ClassicRule();
                 break;
-            case 21: r = new OnSeFaitAttaquerRule();
+            case 21:
+                r = new OnSeFaitAttaquerRule();
                 break;
-            case 22: r = new PagayeRule();
+            case 22:
+                r = new PagayeRule();
                 break;
-            case 23: r = new DevineLaDirectionRule();
+            case 23:
+                r = new DevineLaDirectionRule();
                 break;
-            case 24: r = new OuilleRule();
+            case 24:
+                r = new OuilleRule();
                 break;
-            case 25: r = new ClownRule();
+            case 25:
+                r = new ClownRule();
                 break;
             default:
                 r = new PartageTonBreuvageRule();
         }
         return r;
-    }
-
-    public static PlayerType getPlayerTypeFromString(String playerName) {
-        PlayerType playerType;
-        switch (playerName) {
-            case ("pirate"):
-                playerType = PlayerType.PIRATE;
-                break;
-            case ("mousse"):
-                playerType = PlayerType.MOUSSE;
-                break;
-            case ("guest"):
-                playerType = PlayerType.GUEST;
-                break;
-            default:
-                playerType = PlayerType.GUEST;
-        }
-        return playerType;
     }
 
     public static int getRandomID(int max) {
@@ -136,7 +150,6 @@ public class Game extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         view.findViewById(id.button_page).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,61 +162,58 @@ public class Game extends Fragment {
         nbMinGulps = 3;
         nbMaxGulps = 10;
 
+
+
         // Receive players
-        NavDestination context = NavHostFragment.findNavController(Game.this).getGraph().findNode(R.id.gameFragment);
+        NavDestination context = NavHostFragment.findNavController(Game.this).getGraph().findNode(id.gameFragment);
         String key = "players";
         ArrayList<String> players = ((Bundle) context.getArguments().get(key).getDefaultValue()).getStringArrayList(key);
 
-        int separator = 0;
-        String tmpName;
-        PlayerType tmpType;
         for (String player : players) {
-            separator = player.indexOf(":");
-            tmpName = player.substring(separator + 1);
-            tmpType = getPlayerTypeFromString(player.substring(0, separator));
-            if (tmpType == PlayerType.PIRATE) {
-                this.pirates.add(new Player(tmpName, tmpType));
+            String[] playerPackage = player.split(":");
+            String playerName = playerPackage[0];
+            String playerTypeName = playerPackage[1];
+
+            Player newPlayer = null;
+            if (playerTypeName.equals(pirateType.getName())) {
+                newPlayer = new Player(playerName, pirateType);
+                this.pirates.add(newPlayer);
                 nbPirates++;
-            }
-            else if (tmpType == PlayerType.MOUSSE) {
-                this.mousses.add(new Player(tmpName, tmpType));
+            } else if (playerTypeName.equals(mousseType.getName())) {
+                newPlayer = new Player(playerName, mousseType);
+                this.mousses.add(newPlayer);
                 nbMousses++;
-            }
-            else if (tmpType == PlayerType.GUEST) {
-                this.guests.add(new Player(tmpName, tmpType));
+            } else if (playerTypeName.equals(guestType.getName())) {
+                newPlayer = new Player(playerName, guestType);
+                this.guests.add(newPlayer);
                 nbGuests++;
             }
-            this.players.add(new Player(tmpName, tmpType));
-            nbPlayers++;
+            if (newPlayer != null) {
+                this.players.add(newPlayer);
+                nbPlayers++;
+            }
         }
 
         // Select random rule
         currentRule = getRule(getRandomID(nbRules));
         ConstraintLayout layout = view.findViewById(id.gameLayout);
-        int color = currentRule.getRuleColor();
         Log.d("DEBUG", currentRule.getClass().getName());
-        Log.d("DEBUG", "" + color);
         layout.setBackgroundColor(getResources().getColor(currentRule.getRuleColor()));
 
         TextView ruleTextView = view.findViewById(id.ruleId);
 
-
         // Select random players
-        ArrayList<Player> selectedPlayers = new ArrayList<Player>();
-        for (int i = 0 ; i < currentRule.getNbPlayers() ; i++) {
-            switch (currentRule.getPlayerType(i)) {
-                case PIRATE:
-                    selectedPlayers.add(this.pirates.get(getRandomID(nbPirates)));
-                    break;
-                case MOUSSE:
-                    selectedPlayers.add(this.mousses.get(getRandomID(nbMousses)));
-                    break;
-                case GUEST:
-                    selectedPlayers.add(this.guests.get(getRandomID(nbGuests)));
-                    break;
-                default:
-                    selectedPlayers.add(this.players.get(getRandomID(nbPlayers)));
-            }
+        ArrayList<Player> selectedPlayers = new ArrayList<>();
+        for (int i = 0; i < currentRule.getNbPlayers(); i++) {
+            String playerTypeName = currentRule.getPlayerType(i).getName();
+            if (playerTypeName.equals(pirateType.getName()))
+                selectedPlayers.add(this.pirates.get(getRandomID(nbPirates)));
+            else if (playerTypeName.equals(mousseType.getName()))
+                selectedPlayers.add(this.mousses.get(getRandomID(nbMousses)));
+            else if (playerTypeName.equals(guestType.getName()))
+                selectedPlayers.add(this.guests.get(getRandomID(nbGuests)));
+            else
+                selectedPlayers.add(this.players.get(getRandomID(nbGuests)));
         }
 
         if (currentRule.hasGulps()) {
@@ -213,10 +223,10 @@ public class Game extends Fragment {
                     ruleTextView.setText(currentRule.getRuleText(nbGulps));
                     break;
                 case 1:
-                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).name(), nbGulps));
+                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).getName(), nbGulps));
                     break;
                 case 2:
-                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).name(), selectedPlayers.get(1).name(), nbGulps));
+                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).getName(), selectedPlayers.get(1).getName(), nbGulps));
                     break;
                 default:
                     ruleTextView.setText(currentRule.getRuleText());
@@ -224,10 +234,10 @@ public class Game extends Fragment {
         } else {
             switch (currentRule.getNbPlayers()) {
                 case 1:
-                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).name()));
+                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).getName()));
                     break;
                 case 2:
-                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).name(), selectedPlayers.get(1).name()));
+                    ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).getName(), selectedPlayers.get(1).getName()));
                     break;
                 default:
                     ruleTextView.setText(currentRule.getRuleText());

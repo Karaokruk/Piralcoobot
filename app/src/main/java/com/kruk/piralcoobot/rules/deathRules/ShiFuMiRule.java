@@ -1,7 +1,6 @@
 package com.kruk.piralcoobot.rules.deathRules;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.playerType.PlayerType;
 import com.kruk.piralcoobot.rules.RuleType;
 
 public class ShiFuMiRule extends DeathRule {
@@ -13,8 +12,8 @@ public class ShiFuMiRule extends DeathRule {
         this.helpText = "blblbl";
         this.nbPlayers = 2;
         this.hasGulps = false;
-        this.playerTypes.add(PlayerType.ANY);
-        this.playerTypes.add(PlayerType.ANY);
+        this.playerTypes.add(new PlayerType("", null));
+        this.playerTypes.add(new PlayerType("", null));
     }
 
     @Override

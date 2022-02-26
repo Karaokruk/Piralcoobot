@@ -1,7 +1,6 @@
 package com.kruk.piralcoobot.rules.drinkRules;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.playerType.PlayerType;
 import com.kruk.piralcoobot.rules.RuleType;
 
 public class ClassicRule extends DrinkRule {
@@ -13,7 +12,7 @@ public class ClassicRule extends DrinkRule {
         this.helpText = "Le joueur boit le nombre de gorgées indiquées.";
         this.nbPlayers = 1;
         this.hasGulps = true;
-        this.playerTypes.add(PlayerType.ANY);
+        this.playerTypes.add(new PlayerType("", null));
     }
 
     @Override

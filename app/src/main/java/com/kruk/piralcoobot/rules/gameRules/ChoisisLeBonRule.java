@@ -1,7 +1,6 @@
 package com.kruk.piralcoobot.rules.gameRules;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.playerType.PirateType;
 import com.kruk.piralcoobot.rules.RuleType;
 
 public class ChoisisLeBonRule extends GameRule {
@@ -13,8 +12,8 @@ public class ChoisisLeBonRule extends GameRule {
         this.helpText = "blblbl";
         this.nbPlayers = 2;
         this.hasGulps = false;
-        this.playerTypes.add(PlayerType.PIRATE);
-        this.playerTypes.add(PlayerType.PIRATE);
+        this.playerTypes.add(new PirateType());
+        this.playerTypes.add(new PirateType());
     }
 
     @Override

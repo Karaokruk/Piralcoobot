@@ -1,7 +1,6 @@
 package com.kruk.piralcoobot.rules.gameRules;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.playerType.PlayerType;
 import com.kruk.piralcoobot.rules.RuleType;
 
 public class ThemeRule extends GameRule {
@@ -13,7 +12,7 @@ public class ThemeRule extends GameRule {
         this.helpText = "blblbl";
         this.nbPlayers = 1;
         this.hasGulps = false;
-        this.playerTypes.add(PlayerType.ANY);
+        this.playerTypes.add(new PlayerType("", null));
     }
 
     @Override

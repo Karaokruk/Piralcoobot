@@ -1,7 +1,7 @@
 package com.kruk.piralcoobot.rules.drinkRules;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.rules.Rule;
+import com.kruk.piralcoobot.playerType.MousseType;
+import com.kruk.piralcoobot.playerType.PirateType;
 import com.kruk.piralcoobot.rules.RuleType;
 
 public class MousseVengeanceRule extends DrinkRule {
@@ -13,8 +13,8 @@ public class MousseVengeanceRule extends DrinkRule {
         this.helpText = "blblbl";
         this.nbPlayers = 2;
         this.hasGulps = false;
-        this.playerTypes.add(PlayerType.MOUSSE);
-        this.playerTypes.add(PlayerType.PIRATE);
+        this.playerTypes.add(new MousseType());
+        this.playerTypes.add(new PirateType());
     }
 
     @Override
