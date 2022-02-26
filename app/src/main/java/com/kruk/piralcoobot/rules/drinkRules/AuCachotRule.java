@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class AuCachotRule extends Rule {
+public class AuCachotRule extends DrinkRule {
 
     public AuCachotRule(){
         super(RuleType.DRINK);

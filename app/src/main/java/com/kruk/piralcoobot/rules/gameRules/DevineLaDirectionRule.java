@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class DevineLaDirectionRule extends Rule {
+public class DevineLaDirectionRule extends GameRule {
 
     public DevineLaDirectionRule() {
         super(RuleType.GAME);
@@ -18,7 +18,7 @@ public class DevineLaDirectionRule extends Rule {
     @Override
     public String getRuleText(int nbGulps) {
         String ruleText = this.ruleText;
-        ruleText = ruleText.replaceAll("<GULPS>", nbGulps);
+        ruleText = ruleText.replaceAll("<GULPS>", String.valueOf(nbGulps));
         ruleText = ruleText.replaceAll("<DIRECTION>", getRandomDirection());
         return ruleText;
     }

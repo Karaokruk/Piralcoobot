@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class FontaineRule extends Rule {
+public class FontaineRule extends DrinkRule {
 
     public FontaineRule(){
 

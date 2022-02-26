@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class RequinRule extends Rule {
+public class RequinRule extends DrinkRule {
 
     public RequinRule() {
         super(RuleType.DRINK);

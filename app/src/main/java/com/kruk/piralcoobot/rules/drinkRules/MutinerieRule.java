@@ -1,10 +1,8 @@
 package com.kruk.piralcoobot.rules.drinkRules;
 
-import com.kruk.piralcoobot.PlayerType;
-import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class MutinerieRule extends Rule {
+public class MutinerieRule extends DrinkRule {
 
     public MutinerieRule() {
         super(RuleType.DRINK);

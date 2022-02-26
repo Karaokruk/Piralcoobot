@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class PasBourreRule extends Rule {
+public class PasBourreRule extends GameRule {
 
     public PasBourreRule() {
         super(RuleType.GAME);

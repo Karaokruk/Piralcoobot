@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class OnSeFaitAttaquerRule extends Rule {
+public class OnSeFaitAttaquerRule extends GameRule {
 
 
     public OnSeFaitAttaquerRule() {

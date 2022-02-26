@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class BatailleDeMousseRule extends Rule {
+public class BatailleDeMousseRule extends GameRule {
 
 
     public BatailleDeMousseRule() {

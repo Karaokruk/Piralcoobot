@@ -48,7 +48,10 @@
             android:id="@+id/button_add_pirate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:background="@color/pirateSecondary"
             android:text="@string/add"
+            android:textColor="@color/buttonTextColor"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +99,10 @@
             android:id="@+id/button_add_mousse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:background="@color/mousseSecondary"
             android:text="@string/add"
+            android:textColor="@color/buttonTextColor"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -145,20 +151,31 @@
             android:id="@+id/button_add_guest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:background="@color/guestSecondary"
             android:text="@string/add"
+            android:textColor="@color/buttonTextColor"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent" />
 
+        <RelativeLayout
+            android:id="@+id/start_game_relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true" >
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/start_game_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/fab_margin"
+                android:backgroundTint="@color/guestSecondary"
+                app:srcCompat="@android:drawable/ic_media_play" />
+        </RelativeLayout>
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/start_game_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.kruk.piralcoobot;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,21 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.io.Console;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.kruk.piralcoobot.rules.*;
+import com.kruk.piralcoobot.rules.deathRules.*;
+import com.kruk.piralcoobot.rules.drinkRules.*;
+import com.kruk.piralcoobot.rules.gameRules.*;
+import com.kruk.piralcoobot.rules.roleRules.*;
 
 import static com.kruk.piralcoobot.R.*;
 
 public class Game extends Fragment {
 
-    private static int nbRules = 24;
+    private static int nbRules = 26;
 
     private int nbMinGulps = 0;
     private int nbMaxGulps = 0;
@@ -86,6 +93,10 @@ public class Game extends Fragment {
             case 22: r = new PagayeRule();
                 break;
             case 23: r = new DevineLaDirectionRule();
+                break;
+            case 24: r = new OuilleRule();
+                break;
+            case 25: r = new ClownRule();
                 break;
             default:
                 r = new PartageTonBreuvageRule();
@@ -169,6 +180,9 @@ public class Game extends Fragment {
         // Select random rule
         currentRule = getRule(getRandomID(nbRules));
         ConstraintLayout layout = view.findViewById(id.gameLayout);
+        int color = currentRule.getRuleColor();
+        Log.d("DEBUG", currentRule.getClass().getName());
+        Log.d("DEBUG", "" + color);
         layout.setBackgroundColor(getResources().getColor(currentRule.getRuleColor()));
 
         TextView ruleTextView = view.findViewById(id.ruleId);
@@ -196,7 +210,7 @@ public class Game extends Fragment {
             int nbGulps = Math.round((float) Math.random() * (nbMaxGulps - nbMinGulps)) + nbMinGulps;
             switch (currentRule.getNbPlayers()) {
                 case 0:
-                    ruleTextView.setText(currentRule.getRuleText());
+                    ruleTextView.setText(currentRule.getRuleText(nbGulps));
                     break;
                 case 1:
                     ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).name(), nbGulps));
@@ -205,7 +219,7 @@ public class Game extends Fragment {
                     ruleTextView.setText(currentRule.getRuleText(selectedPlayers.get(0).name(), selectedPlayers.get(1).name(), nbGulps));
                     break;
                 default:
-                    ruleTextView.setText(currentRule.getRuleText(nbGulps));
+                    ruleTextView.setText(currentRule.getRuleText());
             }
         } else {
             switch (currentRule.getNbPlayers()) {

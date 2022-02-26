@@ -4,7 +4,7 @@ import com.kruk.piralcoobot.PlayerType;
 import com.kruk.piralcoobot.rules.Rule;
 import com.kruk.piralcoobot.rules.RuleType;
 
-public class PagayeRule extends Rule {
+public class PagayeRule extends GameRule {
 
     public PagayeRule() {
         super(RuleType.GAME);
@@ -18,6 +18,6 @@ public class PagayeRule extends Rule {
 
     @Override
     public String getRuleText(int nbGulps) {
-        return this.ruleText.replaceAll("<GULPS>", nbGulps);
+        return this.ruleText.replaceAll("<GULPS>", String.valueOf(nbGulps));
     }
 }
