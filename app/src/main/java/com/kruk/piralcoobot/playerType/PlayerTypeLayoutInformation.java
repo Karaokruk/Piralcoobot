@@ -1,9 +1,11 @@
 package com.kruk.piralcoobot.playerType;
 
+import java.io.Serializable;
+
 import androidx.annotation.ColorRes;
 import androidx.annotation.StringRes;
 
-public class PlayerTypeLayoutInformation {
+public class PlayerTypeLayoutInformation implements Serializable {
     @StringRes
     private final int nameId;
     @StringRes

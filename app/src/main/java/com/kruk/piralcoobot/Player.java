@@ -3,8 +3,8 @@ package com.kruk.piralcoobot;
 import com.kruk.piralcoobot.playerType.PlayerType;
 
 public class Player {
-    private String name;
-    private PlayerType playerType;
+    private final String name;
+    private final PlayerType playerType;
 
     public Player(String name, PlayerType playerType) {
         this.name = name;

@@ -9,6 +9,7 @@
     <string name="action_settings">Options</string>
     <string name="action_help">Aide</string>
     <string name="add">Ajouter</string>
+
     <!-- Strings used for content descriptions -->
     <string name="pirate">Pirate</string>
     <string name="mousse">Mousse</string>
@@ -16,4 +17,8 @@
     <string name="pirateList">PirateList</string>
     <string name="mousseList">MousseList</string>
     <string name="guestList">GuestList</string>
+
+    <!-- Strings used for data file names -->
+    <string name="playerTypeDataFile">playerTypeData</string>
+    <string name="ruleSetDataFile">ruleSetData</string>
 </resources>

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -14,30 +13,28 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-import com.kruk.piralcoobot.playerType.GuestType;
-import com.kruk.piralcoobot.playerType.MousseType;
-import com.kruk.piralcoobot.playerType.PirateType;
 import com.kruk.piralcoobot.playerType.PlayerType;
+import com.kruk.piralcoobot.playerType.PlayerTypeData;
 import com.kruk.piralcoobot.rules.*;
-import com.kruk.piralcoobot.rules.deathRules.*;
-import com.kruk.piralcoobot.rules.drinkRules.*;
-import com.kruk.piralcoobot.rules.gameRules.*;
-import com.kruk.piralcoobot.rules.roleRules.*;
 
 import static com.kruk.piralcoobot.R.*;
 
 public class Game extends Fragment {
 
-    private static final PlayerType pirateType = new PirateType();
-    private static final PlayerType mousseType = new MousseType();
-    private static final PlayerType guestType = new GuestType();
-
-    private final int nbRules = 26;
-
     private int nbMinGulps = 0;
     private int nbMaxGulps = 0;
+
+    private ArrayList<Rule> ruleSet;
+
+    private PlayerTypeData pirateType;
+    private PlayerTypeData mousseType;
+    private PlayerTypeData guestType;
 
     private Rule currentRule;
     private ArrayList<Player> players = new ArrayList<Player>();
@@ -49,91 +46,8 @@ public class Game extends Fragment {
     private ArrayList<Player> guests = new ArrayList<Player>();
     private int nbGuests = 0;
 
-    private Rule getRule(int ID) {
-        Rule r;
-        switch (ID) {
-            case 0:
-                r = new ClapRule();
-                break;
-            case 1:
-                r = new CulSecRule();
-                break;
-            case 2:
-                r = new DansMonTonneauRule();
-                break;
-            case 3:
-                r = new DistanceMousseRule();
-                break;
-            case 4:
-                r = new MousseVengeanceRule();
-                break;
-            case 5:
-                r = new PartageTonBreuvageRule();
-                break;
-            case 6:
-                r = new PirateTraumatismeRule();
-                break;
-            case 7:
-                r = new PouetRule();
-                break;
-            case 8:
-                r = new ShiFuMiRule();
-                break;
-            case 9:
-                r = new ThemeRule();
-                break;
-            case 10:
-                r = new AuCachotRule();
-                break;
-            case 11:
-                r = new BatailleDeMousseRule();
-                break;
-            case 12:
-                r = new ChoisisLeBonRule();
-                break;
-            case 13:
-                r = new FontaineRule();
-                break;
-            case 14:
-                r = new MutinerieRule();
-                break;
-            case 15:
-                r = new NavireHorizonRule();
-                break;
-            case 16:
-                r = new PasBourreRule();
-                break;
-            case 17:
-                r = new RequinRule();
-                break;
-            case 18:
-                r = new TroisProchainesRule();
-                break;
-            case 19:
-                r = new TuBoisRule();
-                break;
-            case 20:
-                r = new ClassicRule();
-                break;
-            case 21:
-                r = new OnSeFaitAttaquerRule();
-                break;
-            case 22:
-                r = new PagayeRule();
-                break;
-            case 23:
-                r = new DevineLaDirectionRule();
-                break;
-            case 24:
-                r = new OuilleRule();
-                break;
-            case 25:
-                r = new ClownRule();
-                break;
-            default:
-                r = new PartageTonBreuvageRule();
-        }
-        return r;
+    private Rule getRandomRule() {
+        return this.ruleSet.get(getRandomID(this.ruleSet.size()));
     }
 
     public static int getRandomID(int max) {
@@ -150,6 +64,9 @@ public class Game extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        retrievePlayerTypeData();
+        retrieveRuleSetData();
+
         view.findViewById(id.button_page).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,58 +79,31 @@ public class Game extends Fragment {
         nbMinGulps = 3;
         nbMaxGulps = 10;
 
-
-
-        // Receive players
-        NavDestination context = NavHostFragment.findNavController(Game.this).getGraph().findNode(id.gameFragment);
-        String key = "players";
-        ArrayList<String> players = ((Bundle) context.getArguments().get(key).getDefaultValue()).getStringArrayList(key);
-
-        for (String player : players) {
-            String[] playerPackage = player.split(":");
-            String playerName = playerPackage[0];
-            String playerTypeName = playerPackage[1];
-
-            Player newPlayer = null;
-            if (playerTypeName.equals(pirateType.getName())) {
-                newPlayer = new Player(playerName, pirateType);
-                this.pirates.add(newPlayer);
-                nbPirates++;
-            } else if (playerTypeName.equals(mousseType.getName())) {
-                newPlayer = new Player(playerName, mousseType);
-                this.mousses.add(newPlayer);
-                nbMousses++;
-            } else if (playerTypeName.equals(guestType.getName())) {
-                newPlayer = new Player(playerName, guestType);
-                this.guests.add(newPlayer);
-                nbGuests++;
-            }
-            if (newPlayer != null) {
-                this.players.add(newPlayer);
-                nbPlayers++;
-            }
-        }
+        // Retrieve players
+        retrievePlayers();
 
         // Select random rule
-        currentRule = getRule(getRandomID(nbRules));
+        currentRule = getRandomRule();
         ConstraintLayout layout = view.findViewById(id.gameLayout);
         Log.d("DEBUG", currentRule.getClass().getName());
-        layout.setBackgroundColor(getResources().getColor(currentRule.getRuleColor()));
+        layout.setBackgroundColor(getResources().getColor(currentRule.getRuleColorId()));
 
         TextView ruleTextView = view.findViewById(id.ruleId);
 
         // Select random players
         ArrayList<Player> selectedPlayers = new ArrayList<>();
         for (int i = 0; i < currentRule.getNbPlayers(); i++) {
-            String playerTypeName = currentRule.getPlayerType(i).getName();
-            if (playerTypeName.equals(pirateType.getName()))
-                selectedPlayers.add(this.pirates.get(getRandomID(nbPirates)));
-            else if (playerTypeName.equals(mousseType.getName()))
-                selectedPlayers.add(this.mousses.get(getRandomID(nbMousses)));
-            else if (playerTypeName.equals(guestType.getName()))
-                selectedPlayers.add(this.guests.get(getRandomID(nbGuests)));
+            Player selectedPlayer;
+            PlayerType playerTypeName = currentRule.getPlayerType(i);
+            if (playerTypeName == pirateType.getPlayerType())
+                selectedPlayer = this.pirates.get(getRandomID(nbPirates));
+            else if (playerTypeName == mousseType.getPlayerType())
+                selectedPlayer = this.mousses.get(getRandomID(nbMousses));
+            else if (playerTypeName == guestType.getPlayerType())
+                selectedPlayer = this.guests.get(getRandomID(nbGuests));
             else
-                selectedPlayers.add(this.players.get(getRandomID(nbGuests)));
+                selectedPlayer = this.players.get(getRandomID(nbPlayers));
+            selectedPlayers.add(selectedPlayer);
         }
 
         if (currentRule.hasGulps()) {
@@ -241,6 +131,116 @@ public class Game extends Fragment {
                     break;
                 default:
                     ruleTextView.setText(currentRule.getRuleText());
+            }
+        }
+    }
+
+    private void retrievePlayers() {
+        NavDestination context = NavHostFragment.findNavController(Game.this).getGraph().findNode(id.gameFragment);
+        String key = "players";
+        ArrayList<String> players = ((Bundle) context.getArguments().get(key).getDefaultValue()).getStringArrayList(key);
+
+        for (String player : players) {
+            String[] playerPackage = player.split(":");
+            String playerName = playerPackage[0];
+            String playerTypeName = playerPackage[1];
+
+            Player newPlayer = null;
+            if (playerTypeName.equals(pirateType.getName())) {
+                newPlayer = new Player(playerName, PlayerType.PIRATE);
+                this.pirates.add(newPlayer);
+                nbPirates++;
+            } else if (playerTypeName.equals(mousseType.getName())) {
+                newPlayer = new Player(playerName, PlayerType.MOUSSE);
+                this.mousses.add(newPlayer);
+                nbMousses++;
+            } else if (playerTypeName.equals(guestType.getName())) {
+                newPlayer = new Player(playerName, PlayerType.GUEST);
+                this.guests.add(newPlayer);
+                nbGuests++;
+            }
+            if (newPlayer != null) {
+                this.players.add(newPlayer);
+                nbPlayers++;
+            }
+        }
+    }
+
+    private void retrieveRuleSetData() {
+        File file = new File(this.getContext().getFilesDir(), getResources().getString(string.ruleSetDataFile));
+
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        Log.d("DEBUG", "lmao i'm here");
+        try {
+            fis = new FileInputStream(file);
+            ois = new ObjectInputStream(fis);
+
+            this.ruleSet = (ArrayList<Rule>) ois.readObject();
+            Log.d("DEBUG", String.valueOf(this.ruleSet.size()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (ois != null) {
+                try {
+                    ois.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void retrievePlayerTypeData() {
+        File file = new File(this.getContext().getFilesDir(), getResources().getString(R.string.playerTypeDataFile));
+
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        ArrayList<PlayerTypeData> playerTypeData = null;
+
+        try {
+            fis = new FileInputStream(file);
+            ois = new ObjectInputStream(fis);
+
+            playerTypeData = (ArrayList<PlayerTypeData>) ois.readObject();
+            for (PlayerTypeData p : playerTypeData) {
+                Log.d("DEBUG", p.getName());
+                switch (p.getName()) {
+                    case "Pirate":
+                        this.pirateType = p;
+                        break;
+                    case "Mousse":
+                        this.mousseType = p;
+                        break;
+                    case "Guest":
+                        this.guestType = p;
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (ois != null) {
+                try {
+                    ois.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
