@@ -1,0 +1,9 @@
+{
+  "name": "CulSec",
+  "rule_text": "Cul sec pour <NAME> !",
+  "help_text": "Le joueur boit l'intégralité de son verre. S'il est déjà proche de la fin, il doit d'abord le re-remplir.",
+  "rule_type": "death",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["any"]
+}

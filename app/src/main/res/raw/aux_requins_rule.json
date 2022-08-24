@@ -1,0 +1,9 @@
+{
+  "name": "AuxRequins",
+  "rule_text": "AUX REQUINS ! Désignez un joueur en même temps, il boit <GULPS> gorgées.",
+  "help_text": "En cas d'égalité entre plusieurs joueurs, ils boivent tous.",
+  "rule_type": "drink",
+  "nb_players": 0,
+  "has_gulps": true,
+  "player_types": []
+}

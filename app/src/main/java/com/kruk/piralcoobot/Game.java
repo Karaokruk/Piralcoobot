@@ -1,5 +1,6 @@
 package com.kruk.piralcoobot;
 
+import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,38 +14,45 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
 import com.kruk.piralcoobot.playerType.PlayerType;
 import com.kruk.piralcoobot.playerType.PlayerTypeData;
 import com.kruk.piralcoobot.rules.*;
+
 
 import static com.kruk.piralcoobot.R.*;
 
 public class Game extends Fragment {
 
-    private int nbMinGulps = 0;
-    private int nbMaxGulps = 0;
+    private static boolean dataHasBeenRetrieved = false;
 
-    private ArrayList<Rule> ruleSet;
+    private static int nbMinGulps = 0;
+    private static int nbMaxGulps = 0;
 
-    private PlayerTypeData pirateType;
-    private PlayerTypeData mousseType;
-    private PlayerTypeData guestType;
+    private static ArrayList<Rule> ruleSet = new ArrayList<>();
+
+    private static PlayerTypeData pirateType;
+    private static PlayerTypeData mousseType;
+    private static PlayerTypeData guestType;
 
     private Rule currentRule;
-    private ArrayList<Player> players = new ArrayList<Player>();
-    private int nbPlayers = 0;
-    private ArrayList<Player> pirates = new ArrayList<Player>();
-    private int nbPirates = 0;
-    private ArrayList<Player> mousses = new ArrayList<Player>();
-    private int nbMousses = 0;
-    private ArrayList<Player> guests = new ArrayList<Player>();
-    private int nbGuests = 0;
+    private static ArrayList<Player> players = new ArrayList<Player>();
+    private static int nbPlayers = 0;
+    private static ArrayList<Player> pirates = new ArrayList<Player>();
+    private static int nbPirates = 0;
+    private static ArrayList<Player> mousses = new ArrayList<Player>();
+    private static int nbMousses = 0;
+    private static ArrayList<Player> guests = new ArrayList<Player>();
+    private static int nbGuests = 0;
 
     private Rule getRandomRule() {
         return this.ruleSet.get(getRandomID(this.ruleSet.size()));
@@ -64,8 +72,20 @@ public class Game extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        retrievePlayerTypeData();
-        retrieveRuleSetData();
+        if (dataHasBeenRetrieved) {
+            Log.d("DEBUG", "Data has been loaded. Playing...");
+        } else {
+            Log.d("DEBUG", "No players loaded. Initializing...");
+            try {
+                retrievePlayerTypeData();
+                retrieveRuleSetDataFromJson();
+                retrievePlayers();
+                dataHasBeenRetrieved = true;
+            } catch(Exception e) {
+                Log.d("ERROR", "Could not initialize game data.");
+                e.printStackTrace();
+            }
+        }
 
         view.findViewById(id.button_page).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +96,8 @@ public class Game extends Fragment {
         });
 
         // Receive gulps /!\ TODO
-        nbMinGulps = 3;
-        nbMaxGulps = 10;
-
-        // Retrieve players
-        retrievePlayers();
+        nbMinGulps = 2;
+        nbMaxGulps = 6;
 
         // Select random rule
         currentRule = getRandomRule();
@@ -136,6 +153,7 @@ public class Game extends Fragment {
     }
 
     private void retrievePlayers() {
+        Log.d("DEBUG", "Retrieving players...");
         NavDestination context = NavHostFragment.findNavController(Game.this).getGraph().findNode(id.gameFragment);
         String key = "players";
         ArrayList<String> players = ((Bundle) context.getArguments().get(key).getDefaultValue()).getStringArrayList(key);
@@ -164,15 +182,56 @@ public class Game extends Fragment {
                 nbPlayers++;
             }
         }
+        Log.d("DEBUG", "Players successfully retrieved.");
+    }
+
+    private void retrieveRuleSetDataFromJson() {
+        Log.d("DEBUG", "Retrieving rule set data...");
+
+        Gson gson = new Gson();
+        // Retrieve source JSON
+        Field[] fields = R.raw.class.getFields();
+        for(int i = 0; i < fields.length; i++)
+        {
+            Log.d("DEBUG", "Retrieving JSON resource ID...");
+            int resourceId = 0;
+            try {
+                resourceId = fields[i].getInt(fields[i]);
+                Log.d("DEBUG", "Successfully retrieved JSON resource with ID: " + resourceId + ".");
+            } catch (IllegalAccessException e) {
+                Log.d("DEBUG", "Failed to retrieve JSON resource ID.");
+                e.printStackTrace();
+            }
+            InputStream ruleInputStream = getResources().openRawResource(resourceId);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                int j = ruleInputStream.read();
+                while (j != -1) {
+                    byteArrayOutputStream.write(j);
+                    j = ruleInputStream.read();
+                }
+                ruleInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // Instantiate Rule class
+            String ruleJsonString = byteArrayOutputStream.toString();
+            Rule rule = gson.fromJson(ruleJsonString, Rule.class);
+
+            ruleSet.add(rule);
+        }
+
+        Log.d("DEBUG", "Rule set data retrieved.");
     }
 
     private void retrieveRuleSetData() {
+        Log.d("DEBUG", "Retrieving rule set data...");
         File file = new File(this.getContext().getFilesDir(), getResources().getString(string.ruleSetDataFile));
 
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
-        Log.d("DEBUG", "lmao i'm here");
         try {
             fis = new FileInputStream(file);
             ois = new ObjectInputStream(fis);
@@ -200,6 +259,7 @@ public class Game extends Fragment {
     }
 
     private void retrievePlayerTypeData() {
+        Log.d("DEBUG", "Retrieving player type data...");
         File file = new File(this.getContext().getFilesDir(), getResources().getString(R.string.playerTypeDataFile));
 
         FileInputStream fis = null;

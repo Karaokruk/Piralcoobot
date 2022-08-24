@@ -1,0 +1,9 @@
+{
+  "name": "Bravo",
+  "rule_text": "Bravo <NAME> ! Tu es le plus bourré de la soirée, donne un cul sec à qui tu veux !",
+  "help_text": "Bravo !",
+  "rule_type": "death",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["any"]
+}

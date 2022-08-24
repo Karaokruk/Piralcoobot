@@ -5,11 +5,35 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath 'com.android.tools.build:gradle:7.2.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+}
+
+plugins {
+    id 'java-library'
+}
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    jaxb
+}
+
+dependencies {
+    jaxb (
+            'com.sun.xml.bind:jaxb-core:2.3.0.1',
+            'com.sun.xml.bind:jaxb-xjc:2.3.1',
+            'com.sun.xml.bind:jaxb-impl:2.3.1',
+            'org.glassfish.jaxb:jaxb-runtime:2.3.3'
+    )
 }
 
 allprojects {
@@ -19,6 +43,23 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+task jaxb {
+    System.setProperty('javax.xml.accessExternalSchema', 'all')
+    def jaxbTargetDir = file("app/src/main/gen/jaxb")
+    doLast {
+        jaxbTargetDir.mkdirs()
+        ant.taskdef(
+                name: 'xjc',
+                classname: 'com.sun.tools.xjc.XJCTask',
+                classpath: configurations.jaxb.asPath
+        )
+        ant.jaxbTargetDir = jaxbTargetDir
+        ant.xjc(
+                destdir: '${jaxbTargetDir}',
+                package: '',
+                schema: 'app/src/main/res/xml/rule.xsd'
+        )
+    }
 }
+
+compileJava.dependsOn jaxb

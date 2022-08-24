@@ -1,5 +1,7 @@
 package com.kruk.piralcoobot.rules;
 
+import com.google.gson.annotations.SerializedName;
+import com.kruk.piralcoobot.R;
 import com.kruk.piralcoobot.playerType.PlayerType;
 
 import java.io.Serializable;
@@ -8,25 +10,36 @@ import java.util.ArrayList;
 import androidx.annotation.ColorRes;
 
 
-public abstract class Rule implements Serializable {
+public class Rule implements Serializable {
+    @SerializedName("name")
     protected String name;
+    @SerializedName("rule_text")
     protected String ruleText;
+    @SerializedName("help_text")
     protected String helpText;
-    protected RuleType ruleType;
+    @SerializedName("rule_type")
+    protected String ruleType;
+    @SerializedName("nb_players")
     protected int nbPlayers;
+    @SerializedName("has_gulps")
     protected Boolean hasGulps;
-    protected ArrayList<PlayerType> playerTypes;
+    @SerializedName("player_types")
+    protected ArrayList<String> playerTypes = new ArrayList<>();
+
+
+    protected ArrayList<PlayerType> playerTypesClass;
+    protected RuleType ruleTypeClass;
     @ColorRes
     protected int colorId;
 
-    public Rule(RuleType ruleType, int colorId) {
-        this.playerTypes = new ArrayList<PlayerType>();
-        this.ruleType = ruleType;
+    public Rule(RuleType ruleTypeClass, int colorId) {
+        this.playerTypesClass = new ArrayList<PlayerType>();
+        this.ruleTypeClass = ruleTypeClass;
         this.colorId = colorId;
     }
 
-    public Rule(RuleType ruleType, int colorId, String name, String ruleText, String helpText, int nbPlayers, Boolean hasGulps) {
-        this.ruleType = ruleType;
+    public Rule(RuleType ruleTypeClass, int colorId, String name, String ruleText, String helpText, int nbPlayers, Boolean hasGulps) {
+        this.ruleTypeClass = ruleTypeClass;
         this.colorId = colorId;
         this.name = name;
         this.ruleText = ruleText;
@@ -35,15 +48,15 @@ public abstract class Rule implements Serializable {
         this.hasGulps = hasGulps;
     }
 
-    public Rule(RuleType ruleType, int colorId, String name, String ruleText, String helpText, int nbPlayers, Boolean hasGulps, ArrayList<PlayerType> playerTypes) {
-        this.ruleType = ruleType;
+    public Rule(RuleType ruleTypeClass, int colorId, String name, String ruleText, String helpText, int nbPlayers, Boolean hasGulps, ArrayList<PlayerType> playerTypesClass) {
+        this.ruleTypeClass = ruleTypeClass;
         this.colorId = colorId;
         this.name = name;
         this.ruleText = ruleText;
         this.helpText = helpText;
         this.nbPlayers = nbPlayers;
         this.hasGulps = hasGulps;
-        this.playerTypes = playerTypes;
+        this.playerTypesClass = playerTypesClass;
     }
 
     public static String getRandomDirection() {
@@ -93,11 +106,37 @@ public abstract class Rule implements Serializable {
         return ruleText;
     }
 
-    public int getRuleColorId() { return this.colorId; }
+    public int getRuleColorId() {
+        switch (ruleType)
+        {
+            case "death":
+                return R.color.deathColor;
+            case "drink":
+                return R.color.drinkColor;
+            case "game":
+                return R.color.gameColor;
+            case "role":
+                return R.color.roleColor;
+            default:
+                return R.color.appBackground;
+        }
+    }
 
     public int getNbPlayers() { return this.nbPlayers; }
 
     public Boolean hasGulps() { return this.hasGulps; }
 
-    public PlayerType getPlayerType(int id) { return this.playerTypes.get(id); }
+    public PlayerType getPlayerType(int id) {
+        switch (playerTypes.get(id))
+        {
+            case "pirate":
+                return PlayerType.PIRATE;
+            case "mousse":
+                return PlayerType.MOUSSE;
+            case "guest":
+                return PlayerType.GUEST;
+            default:
+                return PlayerType.ANY;
+        }
+    }
 }
