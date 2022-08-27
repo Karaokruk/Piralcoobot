@@ -1,0 +1,9 @@
+{
+  "name": "DansMonTonneau",
+  "rule_text": "Dans mon tonneau, <NAME> commence, sens vers la <DIRECTION>. \n Le perdant boit le nombre d'objets dans mon tonneau.",
+  "help_text": "help text",
+  "rule_type": "game",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["any"]
+}
