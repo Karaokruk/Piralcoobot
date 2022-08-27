@@ -1,0 +1,9 @@
+{
+  "name": "Shifumi",
+  "rule_text": "<NAME1> & <NAME2>, faites un Shi-fu-mi cul sec.",
+  "help_text": "help text",
+  "rule_type": "death",
+  "nb_players": 2,
+  "has_gulps": false,
+  "player_types": ["any", "any"]
+}
