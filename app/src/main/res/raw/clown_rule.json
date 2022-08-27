@@ -1,0 +1,9 @@
+{
+  "name": "Clown",
+  "rule_text": "<NAME>, à partir de maintenant, si tu fais rire quelqu'un, la victime boit.",
+  "help_text": "MOI J'SUIS UN CLOWN ?",
+  "rule_type": "game",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["any"]
+}
