@@ -1,0 +1,9 @@
+{
+  "name": "Fontaine",
+  "rule_text": "Fontaine : <NAME> tu commences, sens vers la <DIRECTION>.",
+  "help_text": "help text",
+  "rule_type": "drink",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["any"]
+}
