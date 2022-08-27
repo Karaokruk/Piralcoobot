@@ -1,0 +1,9 @@
+{
+  "name": "Classic",
+  "rule_text": "<NAME>, pour étancher ta soif, accompagne les victimes des trois prochaines règles.",
+  "help_text": "help text",
+  "rule_type": "drink",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["any"]
+}
