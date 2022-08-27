@@ -1,0 +1,9 @@
+{
+  "name": "Ouille",
+  "rule_text": "Chacun son tour, une rime en -ouille ! <NAME> commence, sens vers la <DIRECTION>. PRÊÊÊÊTS ?!\nC'est moiiiiii le plus grand pirate de l'îîîîîîîîle !\nJe trucide et j'écrabouille, et je m'en mets plein les -",
+  "help_text": "help text",
+  "rule_type": "game",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["pirate"]
+}
