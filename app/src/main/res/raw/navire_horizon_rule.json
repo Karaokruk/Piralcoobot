@@ -1,0 +1,9 @@
+{
+  "name": "NavireHorizon",
+  "rule_text": "Navire à l'horizon : finissez vos verres moussaillons, à l'abordage !",
+  "help_text": "help text",
+  "rule_type": "death",
+  "nb_players": 0,
+  "has_gulps": false,
+  "player_types": []
+}
