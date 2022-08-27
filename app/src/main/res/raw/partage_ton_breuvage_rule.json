@@ -1,0 +1,9 @@
+{
+  "name": "PartageTonBreuvage",
+  "rule_text": "<NAME1>, verse un peu de la boisson la plus proche dans le verre de <NAME2> (les verres comptent comme une boisson).",
+  "help_text": "help text",
+  "rule_type": "drink",
+  "nb_players": 2,
+  "has_gulps": false,
+  "player_types": ["any", "any"]
+}
