@@ -1,0 +1,9 @@
+{
+  "name": "ChoisisLeBon",
+  "rule_text": "Choisis le bon ! <NAME1> et <NAME2> choisissent leur mousse respectif et misent des gorgées dessus. Les mousses choisissent une carte face cachée puis la retourne ensemble. La plus grande gagne (mais l'as perd).",
+  "help_text": "help text",
+  "rule_type": "game",
+  "nb_players": 2,
+  "has_gulps": false,
+  "player_types": ["pirate", "pirate"]
+}
