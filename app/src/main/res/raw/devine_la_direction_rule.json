@@ -1,0 +1,9 @@
+{
+  "name": "DevineLaDirection",
+  "rule_text": "DEVINE LA DIRECTION !\n Tout le monde se tourne vers un de ses voisins. Si c'est le bon voisin, il boit, sinon, c'est l'autre qui boit. <GULPS> gorgées sont en jeu. Et le bon voisin était... Celui à votre <DIRECTION> !",
+  "help_text": "help text",
+  "rule_type": "game",
+  "nb_players": 0,
+  "has_gulps": true,
+  "player_types": []
+}
