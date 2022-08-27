@@ -1,0 +1,9 @@
+{
+  "name": "BatailleDeMousse",
+  "rule_text": "BATAILLE DE MOUSSES ! Les mousses jettent un dé, le mousse qui fait le plus haut score est épargné, les autres boivent <GULPS>",
+  "help_text": "help text",
+  "rule_type": "game",
+  "nb_players": 0,
+  "has_gulps": true,
+  "player_types": []
+}
