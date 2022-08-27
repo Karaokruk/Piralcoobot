@@ -1,0 +1,9 @@
+{
+  "name": "Pagaye",
+  "rule_text": "À 3, tout le monde pagaye d'un côté. Ceux qui pagayent du côté le plus choisi boivent <GULPS> gorgées (en cas d'égalité, tout le monde boit).\n 1... 2... 3 !",
+  "help_text": "help text",
+  "rule_type": "game",
+  "nb_players": 0,
+  "has_gulps": true,
+  "player_types": []
+}
