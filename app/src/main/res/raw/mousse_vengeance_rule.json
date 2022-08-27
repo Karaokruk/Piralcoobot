@@ -1,0 +1,9 @@
+{
+  "name": "MousseVengeance",
+  "rule_text": "<NAME1>, finis le verre de <NAME2> puis remplis-le avec ce que tu veux (le verre, pas le pirate).",
+  "help_text": "help text",
+  "rule_type": "drink",
+  "nb_players": 2,
+  "has_gulps": false,
+  "player_types": ["mousse", "pirate"]
+}
