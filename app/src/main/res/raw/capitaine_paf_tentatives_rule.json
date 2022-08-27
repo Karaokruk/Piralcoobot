@@ -1,0 +1,9 @@
+{
+  "name": "CapitainePafTentatives",
+  "rule_text": "<NAME>, bois autant de gorgées que de tentatives que tu as passées au Capitaine Paf",
+  "help_text": "help text",
+  "rule_type": "drink",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["pirate"]
+}
