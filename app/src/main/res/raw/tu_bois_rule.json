@@ -1,0 +1,9 @@
+{
+  "name": "TuBois",
+  "rule_text": "<NAME>, tu bois.",
+  "help_text": "Le joueur boit.",
+  "rule_type": "drink",
+  "nb_players": 1,
+  "has_gulps": false,
+  "player_types": ["any"]
+}
