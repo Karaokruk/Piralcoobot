@@ -1,0 +1,9 @@
+{
+  "name": "PasBourre",
+  "rule_text": "T'ES PAS BOURRÉ ! Laissez la Poule Pirate choisir qui n'a pas encore assez bu, <GULPS> gorgées !",
+  "help_text": "help text",
+  "rule_type": "game",
+  "nb_players": 0,
+  "has_gulps": true,
+  "player_types": []
+}
