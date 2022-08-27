@@ -1,0 +1,9 @@
+{
+  "name": "Mutinerie",
+  "rule_text": "MUTINERIE ! Les matelots se retournent contre le capitaine. Chaque matelot donne <GULPS> gorgées au capitaine et les boit avec lui.",
+  "help_text": "help text",
+  "rule_type": "drink",
+  "nb_players": 0,
+  "has_gulps": true,
+  "player_types": []
+}
