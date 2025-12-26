@@ -160,8 +160,8 @@ public class Game extends Fragment {
 
         for (String player : players) {
             String[] playerPackage = player.split(":");
-            String playerName = playerPackage[0];
-            String playerTypeName = playerPackage[1];
+            String playerTypeName = playerPackage[0];
+            String playerName = playerPackage[1];
 
             Player newPlayer = null;
             if (playerTypeName.equals(pirateType.getName())) {
